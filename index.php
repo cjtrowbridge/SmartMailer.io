@@ -1,9 +1,7 @@
 <?php
 
-include('Event.php');
-include('Query.php');
-include('Mail.php');
-include('Session.php');
+include('Loader.php');
+Loader();
 
 if(file_exists('Config.php')){
   include('Config.php');
