@@ -30,7 +30,7 @@ function SmartMailer(){
 function MaybeQueueEmail($To,$Message,$CampaignID){
   $Hash = md5($To.':'.PHP_EOL.$Message);
   if(!(AlreadyQueued($Hash))){
-    QueueEmail($To,$Message,$CampaignID);
+    QueueEmail($To,$Message,$CampaignID,$Hash);
   }
 }
 
@@ -43,12 +43,12 @@ function AlreadyQueued($Hash){
   }
 }
   
-function QueueEmail($To,$Message,$CampaignID){
+function QueueEmail($To,$Message,$CampaignID,$Hash){
   Query("
     INSERT INTO `Messages`(
-      `Destination`, `Message`, `CampaignID`, `Queued`
+      `Destination`, `Message`, `CampaignID`, `Queued`, `Hash`
     )VALUES(
-      '".Sanitize($To)."', '".Sanitize($Message)."', '".$CampaignID."', NOW()
+      '".Sanitize($To)."', '".Sanitize($Message)."', '".$CampaignID."', NOW(), '".$Hash."'
     );
   ");
 }
