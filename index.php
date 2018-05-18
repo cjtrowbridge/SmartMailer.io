@@ -13,12 +13,12 @@ if(LoggedIn()){
 
   Event('Logged In');
   Event('Logged In - Page');
-  404();
+  Error404();
 
 }else{
 
   Event('Not Logged In');
   Event('Not Logged In - Page');
-  404();
+  Error404();
 
 }
