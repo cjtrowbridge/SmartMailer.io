@@ -8,11 +8,11 @@ function SmartMailer(){
     
   foreach($Campaigns as $Campaign){
     $Segmentation = Query($Campaign['Query']);
+    
+    echo '<h4>Segmentation</h4>';
+    echo ArrTabler($Segmentation);
+    
     foreach($Segmentation as $Variables){
-      
-      echo '<h4>Segmentation</h4>';
-      echo ArrTabler($Segmentation);
-      
       $ThisMessage = $Campaign['Message'];
       foreach($Variables as $Key => $Value){
         $ThisMessage = str_replace('['.strtoupper($Key).']',$Value,$ThisMessage);
