@@ -12,7 +12,7 @@ function Sanitize($Input, $Type = 'string'){
       return intval($Input);
     case 'string':
     default:
-      MakeSureDBConnected();
+      //TODO debug this here MakeSureDBConnected();
       return mysqli_real_escape_string($Database['Resource'],$Input);
   }
 }
