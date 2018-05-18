@@ -9,13 +9,13 @@ function SmartMailer(){
       foreach($Variables as $Key => $Value){
         $ThisMessage = str_replace('['.strtoupper($Key).']',$Value,$ThisMessage);
       }
-      QueueEmail($To,$ThisMessage,$Campaign['CampaignID']);
+      MaybeQueueEmail($To,$ThisMessage,$Campaign['CampaignID']);
     }
     Query("UPDATE Campaigns SET LastRun = NOW() WHERE CampaignID = ".$Campaign['CampaignID']);
   }
 }
 
-function QueueEmail($To,$Message,$CampaignID){
+function MaybeQueueEmail($To,$Message,$CampaignID){
   $Hash = md5($To.':'.PHP_EOL.$Message);
   if(!(AlreadyQueued($Hash))){
     QueueEmail($To,$Message,$CampaignID);
