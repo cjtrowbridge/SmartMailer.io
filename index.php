@@ -45,6 +45,21 @@ if(file_exists('core/Config.php')){
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
+          <p>&nbsp;</p>
+          <h1><a href="https://github.com/cjtrowbridge/SmartMailer.io">SmartMailer.io</a></h1>
+          <p>I built a tool very similar to this one as an experiment to see how much money I could bring in to a previous workplace by sending automated emails based on various criteria. The answer turned out to be millions and millions of dollars.</p>
+          <p>I have deliberately left several small sections of this code incomplete in order to prevent accidental misuse. This code is very simple but extremely powerful and it would be very easy to accidentally use it in a way which violates laws all over the world.</p>
+          <p>You MUST research the legal requirements in your jurisdiction before using any part of this project, and make sure you have unambiguous and clear consent as required by law before sending any emails to anyone.</p>
+          <p>I accept no responsibility for the misuse of this code, accidental or deliberate by anyone.</p>
+        </div>
+      </div>
+  	</div>
+  </div><!-- /.container -->
+  
+   <div class="container">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
           <?php SmartMailer(); ?>
         </div>
       </div>
