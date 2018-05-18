@@ -17,7 +17,7 @@ function SmartMailer(){
       foreach($Variables as $Key => $Value){
         $ThisMessage = str_replace('['.strtoupper($Key).']',$Value,$ThisMessage);
       }
-      MaybeQueueEmail($Segmentation['Email'],$ThisMessage,$Campaign['CampaignID']);
+      MaybeQueueEmail($Variables['Email'],$ThisMessage,$Campaign['CampaignID']);
     }
     Query("UPDATE Campaigns SET LastRun = NOW() WHERE CampaignID = ".$Campaign['CampaignID']);
   }
