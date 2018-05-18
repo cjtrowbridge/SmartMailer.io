@@ -6,8 +6,10 @@ if(!(is_dir('debug'))){
   mkdir('debug');
   file_put_contents('debug/index.php','<?php header("Location: /");');
 }
-include_once('core/SHA256.php');
-$THREADID = sha256(uniqid(true));
+
+//include_once('core/SHA256.php');
+
+$THREADID = md5(uniqid(true));
 $DEBUG=array(
   0=>array(
     'description'=> 'Startup',
@@ -16,7 +18,9 @@ $DEBUG=array(
     'timestamp'=> round(microtime(true),4)
   )
 );
-file_put_contents('debug/'.$THREADID.'.php','<?php '.PHP_EOL.'global $DEBUG_EXPORT;'.PHP_EOL.'if(!(isset($DEBUG_EXPORT))){$DEBUG_EXPORT=array();}'.PHP_EOL.PHP_EOL);
+
+//file_put_contents('debug/'.$THREADID.'.php','<?php '.PHP_EOL.'global $DEBUG_EXPORT;'.PHP_EOL.'if(!(isset($DEBUG_EXPORT))){$DEBUG_EXPORT=array();}'.PHP_EOL.PHP_EOL);
+
 function Event($EventDescription,$DefaultCallback = ''){
   if(isset($_GET['verbose'])){
     echo $EventDescription."<br><br>\n\n";
