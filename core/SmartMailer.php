@@ -3,7 +3,7 @@
 function SmartMailer(){
   $Campaigns = Query("SELECT * FROM Campaigns");
   
-  echo '<h1>Campaigns</h1>';
+  echo '<h1><br>Campaigns</h1>';
   echo ArrTabler($Campaigns);
     
   foreach($Campaigns as $Campaign){
@@ -11,7 +11,7 @@ function SmartMailer(){
     foreach($Segmentation as $Variables){
       
       echo '<h4>Segmentation</h4>';
-      echo ArrTabler($Variables);
+      echo ArrTabler($Segmentation);
       
       $ThisMessage = $Campaign['Message'];
       foreach($Variables as $Key => $Value){
