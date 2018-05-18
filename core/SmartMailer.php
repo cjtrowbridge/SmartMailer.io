@@ -29,7 +29,7 @@ function SmartMailer(){
 
 function MaybeQueueEmail($To,$Message,$CampaignID){
   $Hash = md5($To.':'.PHP_EOL.$Message);
-  if(!(AlreadyQueued($Hash))){
+  if(!(AlreadyQueued($Hash))){ //This prevents sending duplicates
     QueueEmail($To,$Message,$CampaignID,$Hash);
   }
 }
@@ -54,4 +54,13 @@ function QueueEmail($To,$Message,$CampaignID,$Hash){
 }
 function Queue(){
   return Query("SELECT * FROM Messages");
+}
+
+function ActuallySend(){
+  $Queue = Query("SELECT * FROM Messages WHERE Sent IS NULL");
+  foreach($Queue as $Message){
+    Query("UPDATE Messages SET Sent = NOW() WHERE MessageID = ".$Message['MessageID']);
+    SendEmail($Message['Message'], $Message['Subject'], $Message['Destination'], $Message['From']);
+  }
+  echo '<h4>All Queued Messages Have Been Sent!</h4>';
 }
