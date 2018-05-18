@@ -46,11 +46,30 @@ if(file_exists('core/Config.php')){
       <div class="row">
         <div class="col-xs-12">
           <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          
           <h1><a href="https://github.com/cjtrowbridge/SmartMailer.io">SmartMailer.io</a></h1>
           <p>I built a tool very similar to this one as an experiment to see how much money I could bring in to a previous workplace by sending automated emails based on various criteria. The answer turned out to be millions and millions of dollars.</p>
           <p>I have deliberately left several small sections of this code incomplete in order to prevent accidental misuse. This code is very simple but extremely powerful and it would be very easy to accidentally use it in a way which violates laws all over the world.</p>
           <p>You MUST research the legal requirements in your jurisdiction before using any part of this project, and make sure you have unambiguous and clear consent as required by law before sending any emails to anyone.</p>
           <p>I accept no responsibility for the misuse of this code, accidental or deliberate by anyone.</p>
+          
+          <h2>The Potential</h2>
+          <p>Combined with a large dataset of customer behavior, it is trivially easy to find enormous amounts of money that has falled through the cracks no matter how good a job a business is doing.</p>
+          <p>I personally like combining this concept with Astria, another project of mine. It allows a very clean interface to the data which makes the process of deploying these campaigns trivial.</p>
+          <p>There is also enormous potential for internal development within companies wherever a problem or error can be found by a query.</p>
+          
+          <h2>Explanation</h2>
+          <p>Below you see three tables. The first table shows the email campaigns. In this case there is just one. The campaign has a name and description as well as a segmentation query, and a message.</p>
+          <p>The result of the segmentation query is shown in the second table. The system takes each column in the segentation query and transposes keywords in the message for the contents of that column in each row. For example, [NAME] in the message will be replaced with the value in the "Name" column returned by the query. Each row in this second table becomes a single outbound email.</p>
+          <p>The third table shows the resulting emails, queued to send. Calling the function <a href="https://github.com/cjtrowbridge/SmartMailer.io/blob/master/core/SmartMailer.php#L59">ActuallySend()</a> (for example, from a cron webhook) will cause the included PHPMailer library to send all queued messages and then mark them as sent.</p>
+          
+          <h2>Next Steps</h2>
+          <p>Several of the files in the repository contain variables which need to be filled in before the system will work.</p>
+          <p>You will also need to connect a database and run the setup query in order to start entering data and campaigns.</p>
+          
+          <p>Have fun and good luck!</p>
+          
         </div>
       </div>
   	</div>
