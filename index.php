@@ -1,10 +1,10 @@
 <?php
 
-include('Loader.php');
+include('core/Loader.php');
 Loader();
 
-if(file_exists('Config.php')){
-  include('Config.php');
+if(file_exists('core/Config.php')){
+  include('core/Config.php');
 }else{
   die('Need to create config file!');
 }
