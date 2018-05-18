@@ -1,6 +1,6 @@
 <?php 
 
-include_once('core/Session.php');
+//include_once('core/Session.php');
 include_once('core/Event.php');
 
 function Loader($dir = 'core',$DieOnFail = true){
