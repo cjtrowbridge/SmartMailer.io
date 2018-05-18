@@ -2,7 +2,6 @@
 
 function MakeSureDBConnected(){
   global $Database;
-  var_dump($Database);
   if(!(isset($Database['Resource']))){$Database['Resource']=false;}
   if($Database['Resource']==false){
     
