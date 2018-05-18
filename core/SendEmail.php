@@ -3,7 +3,7 @@
 function SendEmail($message, $subject = null, $to, $from = null){
   
   if($subject==null){$subject = 'SmartMailer';}
-  if($from==null){$from = 'admin@SmartmMiler.io;}
+  if($from==null){$from = 'admin@SmartmMiler.io';}
   
   $mail = new PHPMailer;
   $mail->isSMTP();
