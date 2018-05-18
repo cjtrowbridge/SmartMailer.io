@@ -16,7 +16,7 @@ function MakeSureDBConnected(){
         $Database['Username'],
         $Database['Password'],
         $Database['Database']
-        ) or die(mysql_error());
+        ) or die(mysqli_error($Database['Resource']));
         $Database['Resource']->set_charset('utf8mb4');
        break;
     default:
