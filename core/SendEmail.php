@@ -13,7 +13,7 @@ function SendEmail($message, $subject = null, $to, $from = null){
   $mail->SMTPDebug = 3; //Change this depending on the level of debugging you want
   $mail->Debugoutput = 'html';
   $mail->Host = 'your smtp host';
-  $mail->Port = 'your smtp port;
+  $mail->Port = 'your smtp port';
   $mail->Username = 'your smtp username';
   $mail->Password = 'your smtp password';
   $mail->setFrom($from);
